@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char mathOperator;
+    double num1, num2;
+    char choice;
+    bool keepCalculating = true; // Ito ang ating loop controller
+
+    cout << "=== Continuous C++ Calculator ===" << endl;
+
+    // Ang lahat ng nasa loob ng while loop ay uulit hangga't 'true' ang keepCalculating
+    while (keepCalculating) {
+        
+        // Step 1: Kunin ang first number
+        cout << "\nEnter 1st number: ";
+        cin >> num1;
+
+        // Step 2: Kunin ang second number
+        cout << "Enter 2nd number: ";
+        cin >> num2;
+
+        // Step 3: Kunin ang operator
+        cout << "Enter the operator (+, -, *, /): ";
+        cin >> mathOperator;
+
+        cout << "-----------------------------" << endl;
+        cout << "Result: ";
+
+        // I-process ang calculation
+        switch (mathOperator) {
+            case '+':
+                cout << num1 << " + " << num2 << " = " << (num1 + num2) << endl;
+                break;
+                
+            case '-':
+                cout << num1 << " - " << num2 << " = " << (num1 - num2) << endl;
+                break;
+                
+            case '*':
+                cout << num1 << " * " << num2 << " = " << (num1 * num2) << endl;
+                break;
+                
+            case '/':
+                if (num2 != 0) {
+                    cout << num1 << " / " << num2 << " = " << (num1 / num2) << endl;
+                } else {
+                    cout << "Error! Division by zero is not allowed." << endl;
+                }
+                break;
+                
+            default:
+                cout << "Error! Invalid operator. Please use +, -, *, or /." << endl;
+                break;
+        }
+        
+        cout << "-----------------------------" << endl;
+
+        // Step 4: Tanungin ang user kung gusto pa magpatuloy
+        cout << "Do you want to compute again? (Y/N): ";
+        cin >> choice;
+
+        // Kung 'N' o 'n' ang i-type nila, papalitan natin ang boolean ng false
+        if (choice == 'N' || choice == 'n') {
+            keepCalculating = false;
+            cout << "\nExiting calculator. Goodbye!" << endl;
+        }
+    }
+
+    return 0;
+}
