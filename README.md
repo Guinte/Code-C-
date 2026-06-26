@@ -1,2 +1,0 @@
-# Code-C-
-Calculator C++
